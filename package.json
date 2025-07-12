@@ -3,10 +3,15 @@
   "version": "1.0.1",
   "description": "soft assertions",
   "main": "dist/index.js",
-  "type": "module",
   "types": "dist/index.d.ts",
-  "scripts": {
-    "build": "npx tsc"
+   "scripts": {
+    "build:esm": "tsc -p tsconfig.esm.json",
+    "build:cjs": "tsc -p tsconfig.cjs.json",
+    "build": "npm run build:esm && npm run build:cjs"
+  },  
+  "exports": {
+    "import": "./dist/esm/index.js",
+    "require": "./dist/cjs/index.js"
   },
   "files": [
     "dist",
