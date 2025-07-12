@@ -1,0 +1,1 @@
+export { MagicAssert } from "./lib/magic-assert.js";

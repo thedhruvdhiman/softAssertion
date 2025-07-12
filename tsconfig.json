@@ -1,10 +1,18 @@
 {
+    "exclude": [
+        "node_modules",
+        "dist",
+    ],
     "compilerOptions": {
+        "lib": ["ESNext"],
         "module": "NodeNext",
         "moduleResolution": "NodeNext",
+        "moduleDetection": "force",
         "target": "es2020",
         "sourceMap": true,
         "outDir": "dist",
+        "strict": true,
+        "skipLibCheck": true
     },
     "include": ["src/**/*"],
 }

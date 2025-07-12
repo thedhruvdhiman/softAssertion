@@ -1,25 +1,33 @@
 {
-  "name": "wdio-assertions",
+  "name": "@infinity/magic-assert",
   "version": "1.0.0",
-  "description": "soft assertions for webdriverio",
-  "main": "index.js",
+  "description": "soft assertions",
+  "main": "dist/index.js",
   "type": "module",
+  "types": "dist/index.d.ts",
   "scripts": {
-    "build": "tsc"
+    "build": "npx tsc"
   },
+  "files": [
+    "dist",
+    "README.md"
+  ],
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/thedhruvdhiman/wdio-assertions.git"
+    "url": "git+https://github.com/thedhruvdhiman/MagicAssert.git"
   },
   "keywords": [
-    "wdio-soft-assert"
+    "soft-assert",
+    "assertions",
+    "testing",
+    "magic-assert"
   ],
   "author": "Dhruv",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/thedhruvdhiman/wdio-assertions/issues"
+    "url": "https://github.com/thedhruvdhiman/MagicAssert/issues"
   },
-  "homepage": "https://github.com/thedhruvdhiman/wdio-assertions#readme",
+  "homepage": "https://github.com/thedhruvdhiman/MagicAssert#readme",
   "devDependencies": {
     "@types/node": "^24.0.12",
     "typescript": "^5.8.3"
