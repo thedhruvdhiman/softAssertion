@@ -1,7 +1,7 @@
 {
   "name": "magic-assert",
   "version": "1.0.0",
-  "description": "soft assertions for webdriverio",
+  "description": "soft assertions",
   "main": "index.js",
   "type": "module",
   "scripts": {
