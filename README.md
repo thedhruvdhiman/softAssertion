@@ -1,1 +1,1 @@
-# wdio-assertions
+# magic-assert
