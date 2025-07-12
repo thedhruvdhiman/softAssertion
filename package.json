@@ -1,6 +1,6 @@
 {
-  "name": "@infinity/magic-assert",
-  "version": "1.0.0",
+  "name": "@_infinity/magic-assert",
+  "version": "1.0.1",
   "description": "soft assertions",
   "main": "dist/index.js",
   "type": "module",

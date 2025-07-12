@@ -131,7 +131,7 @@ export class MagicAssert implements Assertion {
     if (actual === expected) {
       try {
         throw new Error(
-          `[notEqual - Element: ${message}]\nActual: ${actual} is supposed to be equal to Expected: ${expected}\n`,
+          `[${message}]\nActual: ${actual} is supposed to be equal to Expected: ${expected}\n`,
         );
       } catch (error) {
         const errorMsg = error as Error;
