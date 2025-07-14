@@ -15,7 +15,7 @@ export class MagicAssert implements Assertion {
 
   /**
    * Asserts that two values are strictly equal.\
-   * If they are not, an error is thrown and captured in the assertion errors list.\
+   * If they are not, an error is thrown and captured in the assertion errors list.
    *
    * @param actual { string | number | boolean } - The actual value to test.
    * @param expected { string | number | boolean } - The expected value to compare against.
@@ -45,7 +45,7 @@ export class MagicAssert implements Assertion {
    * ---
    *
    * ### Case
-   * - Pass: No error would be stored. User will get success message on console.
+   * - Pass: No error would be stored.
    * - Fail: Assertion error will be stored
    *
    */
@@ -77,7 +77,7 @@ export class MagicAssert implements Assertion {
 
   /**
    * Asserts that actual string contains expected string.\
-   * If they are not, an error is thrown and captured in the assertion errors list.\
+   * If they are not, an error is thrown and captured in the assertion errors list.
    *
    * ---
    *
@@ -97,13 +97,14 @@ export class MagicAssert implements Assertion {
    * ```
    * includes('Lazy fox!', 'y f', 'Oh no!'); // Pass
    * includes('Lazy fox!', ' ', 'Oh no!');   // Pass
+   * 
    * includes('Lazy fox!', 'Y f', 'Oh no!'); // Fail
    * ```
    *
    * ---
    *
    * ### Case
-   * - Pass: No error would be stored. User will get success message on console.\
+   * - Pass: No error would be stored.
    * - Fail: Assertion error will be stored
    */
   includes(actual: string, expected: string, message: string): void {
@@ -123,7 +124,7 @@ export class MagicAssert implements Assertion {
 
   /**
    * Asserts if the value is strictly true.\
-   * If condition is failed, an error is thrown and captured in the assertion errors list.\
+   * If condition is failed, an error is thrown and captured in the assertion errors list.
    *
    * @param value {boolean} - The value for the assertion
    * @param message {string} -The message to be displayed if the assertion fails
@@ -139,7 +140,7 @@ export class MagicAssert implements Assertion {
    * ---
    *
    * ### Case
-   * - Pass: No error would be stored. User will get success message on console.
+   * - Pass: No error would be stored.
    * - Fail: Assertion error will be stored
    */
   isTrue(value: boolean, message: string): void {
@@ -157,7 +158,7 @@ export class MagicAssert implements Assertion {
 
   /**
    * Asserts if the value is strictly false.\
-   * If condition is failed, an error is thrown and captured in the assertion errors list.\
+   * If condition is failed, an error is thrown and captured in the assertion errors list.
    *
    * @param value {boolean} - The value for the assertion
    * @param message {string} - The message to be displayed if the assertion fails
@@ -193,7 +194,7 @@ export class MagicAssert implements Assertion {
 
   /**
    * Asserts that two values are strictly not equal.\
-   * If condition is failed, an error is thrown and captured in the assertion errors list.\
+   * If condition is failed, an error is thrown and captured in the assertion errors list.
    *
    * @param actual { string | number | boolean } - The actual value to be compared.
    * @param expected { string | number | boolean } - The expected value to compare against.
@@ -220,8 +221,8 @@ export class MagicAssert implements Assertion {
    * ---
    *
    * ### Case
-   * - Pass -> No error would be stored. User will get success message on console.\
-   * - Fail -> Assertion error will be stored
+   * - Pass: No error would be stored.
+   * - Fail: Assertion error will be stored
    */
   notEqual<T = string | number | boolean>(
     actual: T,
@@ -249,7 +250,7 @@ export class MagicAssert implements Assertion {
 
   /**
    * Asserts if the actual value is greater than the expected value.\
-   * If condition if failed, an error is thrown and captured in the assertion errors list.\
+   * If condition if failed, an error is thrown and captured in the assertion errors list.
    *
    * @param actual {number} - The actual value to be compared.
    * @param expected {number} - The expected value to compare against.
@@ -260,6 +261,7 @@ export class MagicAssert implements Assertion {
    * Examples:
    * ```
    * greaterThan(11, 10, 'Oh no!'); // Pass
+   * 
    * greaterThan(1, 10, 'Oh no!');  // Fail
    * ```
    *
@@ -288,7 +290,7 @@ export class MagicAssert implements Assertion {
 
   /**
    * Asserts if the actual value is less than the expected value.\
-   * If condition is failed, an error is thrown and captured in the assertion errors list.\
+   * If condition is failed, an error is thrown and captured in the assertion errors list.
    *
    * @param actual {number} - The actual value to be compared.
    * @param expected {number} - The expected value to compare against.
@@ -330,7 +332,7 @@ export class MagicAssert implements Assertion {
 
   /**
    * Asserts if the value is not null.\
-   * If condition is failed, an error is thrown and captured in the assertion errors list.\
+   * If condition is failed, an error is thrown and captured in the assertion errors list.
    *
    * @param value {any} - The value to be checked.
    * @param message {string} - The message to be displayed if the assertion fails.
@@ -366,7 +368,7 @@ export class MagicAssert implements Assertion {
 
   /**
    * Asserts if the value is null.\
-   * If condition is failed, an error is thrown and captured in the assertion errors list.\
+   * If condition is failed, an error is thrown and captured in the assertion errors list.
    *
    * @param value {any} - The value to be checked.
    * @param message {string} - The message to be displayed if the assertion fails.
@@ -402,7 +404,7 @@ export class MagicAssert implements Assertion {
 
   /**
    * Asserts the value should not be undefined.\
-   * If condition is failed, an error is thrown and captured in the assertion errors list.\
+   * If condition is failed, an error is thrown and captured in the assertion errors list.
    *
    * @param value {any} - The value to be checked.
    * @param message {string} - The message to be displayed if the assertion fails.
@@ -442,7 +444,7 @@ export class MagicAssert implements Assertion {
 
   /**
    * Asserts if the value is undefined.\
-   * If condition is failed, an error is thrown and captured in the assertion errors list.\
+   * If condition is failed, an error is thrown and captured in the assertion errors list.
    *
    * @param value {any} - The value to be checked.
    * @param message {string} - The message to be displayed if the assertion fails.
@@ -480,7 +482,7 @@ export class MagicAssert implements Assertion {
 
   /**
    * Asserts if the value is a number.\
-   * If condition is failed, an error is thrown and captured in the assertion errors list.\
+   * If condition is failed, an error is thrown and captured in the assertion errors list.
    *
    * @param value {any} - The value to be checked.
    * @param message {string} - The message to be displayed if the assertion fails.
@@ -527,7 +529,7 @@ export class MagicAssert implements Assertion {
 
   /**
    * Asserts if the value is a string.\
-   * If condition is failed, an error is thrown and captured in the assertion errors list.\
+   * If condition is failed, an error is thrown and captured in the assertion errors list.
    *
    * @param value {any} - The value to be checked.
    * @param message {string} - The message to be displayed if the assertion fails.
