@@ -42,11 +42,11 @@ All assertion methods record errors but do not throw immediately. Call `assertAl
 
 ```ts
 
-equals<T = string | number | boolean>(actual: T, expected: T, message: string): void
+equals(actual: string | number | boolean, expected: string | number | boolean, message: string): void
 includes(actual: string, expected: string, message: string): void
 isTrue(value: boolean, message: string): void
 isFalse(value: boolean, message: string): void
-notEqual<T = string | number | boolean>(actual: T, expected: T, message: string): void
+notEqual(actual: string | number | boolean, expected: string | number | boolean, message: string): void
 greaterThan(actual: number, expected: number, message: string): void
 isLessThan(actual: number, expected: number, message: string): void
 notNull(value: any, message: string): void
