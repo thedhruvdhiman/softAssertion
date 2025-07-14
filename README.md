@@ -41,20 +41,22 @@ test.fun();
 All assertion methods record errors but do not throw immediately. Call `assertAll()` to throw if any errors were recorded.
 
 ```ts
-equals(actual: any, expected: any, message: string): void
-contains(actual: any, expected: any, message: string): void
+
+equals<T = string | number | boolean>(actual: T, expected: T, message: string): void
+includes(actual: string, expected: string, message: string): void
 isTrue(value: boolean, message: string): void
 isFalse(value: boolean, message: string): void
-notEqual(actual: any, expected: any, message: string): void
+notEqual<T = string | number | boolean>(actual: T, expected: T, message: string): void
 greaterThan(actual: number, expected: number, message: string): void
 isLessThan(actual: number, expected: number, message: string): void
-isNotNull(value: any, message: string): void
+notNull(value: any, message: string): void
 isNull(value: any, message: string): void
 isUndefined(value: any, message: string): void
 isDefined(value: any, message: string): void
 isNumber(value: any, message: string): void
 isString(value: any, message: string): void
 assertAll(): void
+
 ```
 
 ---
