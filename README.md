@@ -1,7 +1,6 @@
 # magic-assert
 
-`magic-assert` is a lightweight assertion library for TypeScript and JavaScript, designed to collect assertion errors
-and throw them all at once. This allows your code to continue executing until you explicitly check for failures.
+`magic-assert` is a lightweight assertion library for TypeScript and JavaScript, designed to collect assertion errors and throw them all at once. This allows your code to continue executing until you explicitly check for failures.
 
 ## Features
 
@@ -14,17 +13,17 @@ and throw them all at once. This allows your code to continue executing until yo
 ## Usage
 
 ```ts
-import {MagicAssert} from 'magic-assert';
+import { MagicAssert } from 'magic-assert';
 
-class Test {
-  private magicAssert = new MagicAssert();
+class Test {        
+    private magicAssert = new MagicAssert();
 
-  fun() {
-    this.magicAssert.isUndefined(undefined, "This should pass");
-    this.magicAssert.isTrue(true, "This should also pass");
-    // Add more assertions as needed
-    this.magicAssert.assertAll(); // Throws if any assertion failed
-  }
+    fun() {
+        this.magicAssert.isUndefined(undefined, "This should pass");
+        this.magicAssert.isTrue(true, "This should also pass");
+        // Add more assertions as needed
+        this.magicAssert.assertAll(); // Throws if any assertion failed
+    }
 }
 
 const test = new Test();
@@ -32,7 +31,6 @@ test.fun();
 ```
 
 **Notes:**
-
 - Always call `assertAll()` at the end to throw collected errors.
 - If `assertAll()` is not called, execution continues even if assertions fail.
 
@@ -40,114 +38,23 @@ test.fun();
 
 ## API Reference
 
-All assertion methods record errors but do not throw immediately. Call `assertAll()` to throw if any errors were
-recorded.
+All assertion methods record errors but do not throw immediately. Call `assertAll()` to throw if any errors were recorded.
 
 ```ts
-equals(actual
-:
-any, expected
-:
-any, message
-:
-string
-):
-void
-  includes(actual
-:
-string, expected
-:
-string, message
-:
-string
-):
-void
-  isTrue(value
-:
-boolean, message
-:
-string
-):
-void
-  isFalse(value
-:
-boolean, message
-:
-string
-):
-void
-  notEqual(actual
-:
-any, expected
-:
-any, message
-:
-string
-):
-void
-  greaterThan(actual
-:
-number, expected
-:
-number, message
-:
-string
-):
-void
-  isLessThan(actual
-:
-number, expected
-:
-number, message
-:
-string
-):
-void
-  notNull(value
-:
-any, message
-:
-string
-):
-void
-  isNull(value
-:
-any, message
-:
-string
-):
-void
-  isUndefined(value
-:
-any, message
-:
-string
-):
-void
-  isDefined(value
-:
-any, message
-:
-string
-):
-void
-  isNumber(value
-:
-any, message
-:
-string
-):
-void
-  isString(value
-:
-any, message
-:
-string
-):
-void
-  assertAll()
-:
-void
+equals(actual: any, expected: any, message: string): void
+includes(actual: string, expected: string, message: string): void
+isTrue(value: boolean, message: string): void
+isFalse(value: boolean, message: string): void
+notEqual(actual: any, expected: any, message: string): void
+greaterThan(actual: number, expected: number, message: string): void
+isLessThan(actual: number, expected: number, message: string): void
+notNull(value: any, message: string): void
+isNull(value: any, message: string): void
+isUndefined(value: any, message: string): void
+isDefined(value: any, message: string): void
+isNumber(value: any, message: string): void
+isString(value: any, message: string): void
+assertAll(): void
 ```
 
 ---
@@ -160,32 +67,29 @@ Create a `magic-assert.d.ts` file in your project root:
 
 ```ts
 declare module 'magic-assert' {
-  export class MagicAssert {
-    // Add required function signatures as needed
-  }
+    export class MagicAssert {
+        // Add required function signatures as needed
+    }
 }
 ```
 
 Now you can import and use `MagicAssert` anywhere in your project:
 
 ```ts
-import {MagicAssert} from 'magic-assert';
+import { MagicAssert } from 'magic-assert';
 
 class Foo {
-  private magic = new MagicAssert();
+    private magic = new MagicAssert();
 
-  function
-
-  fun() {
-    this.magic.equals('magic', 'assert', 'Custom message in case of a failure');
-    this.magic.assertAll();
-  }
+    function fun() {
+        this.magic.equals('magic', 'assert', 'Custom message in case of a failure');
+        this.magic.assertAll();
+    }
 }
 
 const foo = new Foo();
 foo.fun();
 ```
-
 The output will be as follows:
 
 ```text
@@ -210,11 +114,6 @@ ISC License
 
 Copyright (c) [2025] [Dhruv Dhiman]
 
-Permission to use, copy, modify, and/or distribute this software for any purpose with or without fee is hereby granted,
-provided that the above copyright notice and this permission notice appear in all copies.
+Permission to use, copy, modify, and/or distribute this software for any purpose with or without fee is hereby granted, provided that the above copyright notice and this permission notice appear in all copies.
 
-THE SOFTWARE IS PROVIDED "AS IS" AND THE AUTHOR DISCLAIMS ALL WARRANTIES WITH REGARD TO THIS SOFTWARE INCLUDING ALL
-IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR ANY SPECIAL, DIRECT,
-INDIRECT, OR CONSEQUENTIAL DAMAGES OR ANY DAMAGES WHATSOEVER RESULTING FROM LOSS OF USE, DATA OR PROFITS, WHETHER IN AN
-ACTION OF CONTRACT, NEGLIGENCE OR OTHER TORTIOUS ACTION, ARISING OUT OF OR IN CONNECTION WITH THE USE OR PERFORMANCE OF
-THIS SOFTWARE.
+THE SOFTWARE IS PROVIDED "AS IS" AND THE AUTHOR DISCLAIMS ALL WARRANTIES WITH REGARD TO THIS SOFTWARE INCLUDING ALL IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR ANY SPECIAL, DIRECT, INDIRECT, OR CONSEQUENTIAL DAMAGES OR ANY DAMAGES WHATSOEVER RESULTING FROM LOSS OF USE, DATA OR PROFITS, WHETHER IN AN ACTION OF CONTRACT, NEGLIGENCE OR OTHER TORTIOUS ACTION, ARISING OUT OF OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
