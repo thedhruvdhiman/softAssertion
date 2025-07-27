@@ -41,12 +41,11 @@ test.fun();
 All assertion methods record errors but do not throw immediately. Call `assertAll()` to throw if any errors were recorded.
 
 ```ts
-
-equals(actual: string | number | boolean, expected: string | number | boolean, message: string): void
+equals(actual: any, expected: any, message: string): void
 includes(actual: string, expected: string, message: string): void
 isTrue(value: boolean, message: string): void
 isFalse(value: boolean, message: string): void
-notEqual(actual: string | number | boolean, expected: string | number | boolean, message: string): void
+notEqual(actual: any, expected: any, message: string): void
 greaterThan(actual: number, expected: number, message: string): void
 isLessThan(actual: number, expected: number, message: string): void
 notNull(value: any, message: string): void
@@ -56,7 +55,6 @@ isDefined(value: any, message: string): void
 isNumber(value: any, message: string): void
 isString(value: any, message: string): void
 assertAll(): void
-
 ```
 
 ---
@@ -82,7 +80,23 @@ import { MagicAssert } from 'magic-assert';
 
 class Foo {
     private magic = new MagicAssert();
+
+    function fun() {
+        this.magic.equals('magic', 'assert', 'Custom message in case of a failure');
+        this.magic.assertAll();
+    }
 }
+
+const foo = new Foo();
+foo.fun();
+```
+The output will be as follows:
+
+```text
+Custom message in case of a failure
+Actual: magic is not equal to Expected: assert
+
+// Followed by stack
 ```
 
 ---
@@ -90,7 +104,7 @@ class Foo {
 ## Best Practices
 
 - Use descriptive messages for each assertion to make debugging easier.
-- Group related assertions together before calling `assertAll()`.
+- Call `assertAll()` where you want to throw collected errors.
 
 ---
 

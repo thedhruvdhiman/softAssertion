@@ -4,13 +4,12 @@
   "description": "soft assertions",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
-   "scripts": {
+  "scripts": {
     "build:esm": "tsc -p tsconfig.esm.json",
     "build": "npm run build:esm"
-  },  
+  },
   "exports": {
-    "import": "./dist/esm/index.js",
-    "require": "./dist/cjs/index.js"
+    "import": "./dist/esm/index.js"
   },
   "files": [
     "dist",
@@ -33,7 +32,11 @@
   },
   "homepage": "https://github.com/thedhruvdhiman/MagicAssert#readme",
   "devDependencies": {
+    "@types/lodash": "^4.17.20",
     "@types/node": "^24.0.12",
     "typescript": "^5.8.3"
+  },
+  "dependencies": {
+    "lodash": "^4.17.21"
   }
 }
