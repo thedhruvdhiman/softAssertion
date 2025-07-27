@@ -1,4 +1,3 @@
-import assert from "node:assert";
 /**
  * throwAssertionErrors - A standalone function to format and throw all collected assertion errors.
  *
@@ -11,11 +10,11 @@ export const throwAssertionErrors = (
 ): void => {
   const errorMessages = errorMessageData
     .map(
-      ({ message }: { message: string }, index: number) =>
+      ({message}: { message: string }, index: number) =>
         `❌ [Assertion ${index + 1}]: \n${message}\n`
     )
     .join("\n");
-  assert.fail(
+  throw new Error(
     `Assertion errors detected. See details below (expand in Allure report):\n${errorMessages}`
   );
 };
