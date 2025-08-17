@@ -5,7 +5,8 @@
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "scripts": {
-    "build": "npm run tsc -p tsconfig.json"
+    "build": "npm run tsc -p tsconfig.json",
+    "publish": "npm run build && npm publish"
   },
   "exports": {
     ".": {
