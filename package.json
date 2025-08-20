@@ -5,7 +5,8 @@
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "scripts": {
-    "build": "npm run tsc -p tsconfig.json",
+    "test": "jest",
+    "build": "tsc -p tsconfig.json",
     "publish": "npm run build && npm publish --access public"
   },
   "exports": {
@@ -35,8 +36,12 @@
   },
   "homepage": "https://github.com/thedhruvdhiman/MagicAssert#readme",
   "devDependencies": {
+    "@types/jest": "^30.0.0",
     "@types/lodash": "^4.17.20",
-    "@types/node": "^24.0.12",
+    "@types/node": "^24.3.0",
+    "jest": "^30.0.5",
+    "ts-jest": "^29.4.1",
+    "ts-node": "^10.9.2",
     "typescript": "^5.8.3"
   },
   "dependencies": {

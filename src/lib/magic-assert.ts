@@ -80,10 +80,15 @@ export class MagicAssert implements Assertion {
    * - Pass: No error would be stored.
    * - Fail: Assertion error will be stored
    */
-  includes(actual: string, expected: string, message: string): void {
-    if (!_c.includes(actual, expected)) {
+  includes(actual: any, expected: any, message: string): void {
+    const condition =
+      _c.isObject(actual) && !_c.isArray(actual)
+        ? _c.has(actual, expected)
+        : _c.includes(actual, expected);
+
+    if (!condition) {
       const error = new Error(
-        `${message}\nActual: ${actual} does not contain \nExpected: ${expected}\n`
+        `${message}\nActual: ${JSON.stringify(actual)} does not contain \nExpected: ${JSON.stringify(expected)}\n`
       );
       this.assertionErrors.push({
         message: `${error.stack}`,
@@ -113,7 +118,7 @@ export class MagicAssert implements Assertion {
    * - Fail: Assertion error will be stored
    */
   isTrue(value: boolean, message: string): void {
-    if (!value) {
+    if (!value || typeof value !== 'boolean') {
       const error = new Error(`${message}\nActual: ${value}\nExpected: true\n`);
       this.assertionErrors.push({
         message: `${error.stack}`,
@@ -178,7 +183,7 @@ export class MagicAssert implements Assertion {
     expected: any,
     message: string
   ): void {
-    if (!(_c.isEqual(actual, expected))) {
+    if ((_c.isEqual(actual, expected))) {
       const error = new Error(
         `${message}\nActual: ${actual} should not be equal to Expected: ${expected}\n`
       );
