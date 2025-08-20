@@ -1,1 +1,2 @@
-export { MagicAssert } from "./lib/magic-assert.js";
+export { Assert } from "./lib/assert.js";
+ 

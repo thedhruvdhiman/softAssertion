@@ -10,7 +10,7 @@ import _c from 'lodash';
  * but instead collect them and throw them all at once when `assertAll` is called.
  *
  */
-export class MagicAssert implements Assertion {
+export class Assert implements Assertion {
 
   // To hold assertion errors temporarily
   private assertionErrors: { message: string }[] = [];

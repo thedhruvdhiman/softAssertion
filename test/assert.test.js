@@ -1,14 +1,14 @@
-const { MagicAssert } = require("../dist/lib/magic-assert.js");
+const { Assert } = require("../dist/lib/assert.js");
 
-describe("MagicAssert", () => {
+describe("Assert", () => {
   let assert;
 
   beforeEach(() => {
-    assert = new MagicAssert();
+    assert = new Assert();
   });
 
-  test("MagicAssert should be defined", () => {
-    expect(MagicAssert).toBeDefined();
+  test("Assert should be defined", () => {
+    expect(Assert).toBeDefined();
   });
 
   describe("equals", () => {
