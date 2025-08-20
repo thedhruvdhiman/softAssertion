@@ -21,7 +21,7 @@
   ],
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/thedhruvdhiman/MagicAssert.git"
+    "url": "git+https://github.com/thedhruvdhiman/softAssertion.git"
   },
   "keywords": [
     "soft-assert",
@@ -49,9 +49,9 @@
   "author": "Dhruv",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/thedhruvdhiman/MagicAssert/issues"
+    "url": "https://github.com/thedhruvdhiman/softAssertion/issues"
   },
-  "homepage": "https://github.com/thedhruvdhiman/MagicAssert#readme",
+  "homepage": "https://github.com/thedhruvdhiman/softAssertion#readme",
   "devDependencies": {
     "@types/jest": "^30.0.0",
     "@types/lodash": "^4.17.20",

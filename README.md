@@ -1,6 +1,6 @@
-# magic-assert
+# soft-assertion
 
-`magic-assert` is a lightweight assertion library for TypeScript and JavaScript, designed to collect assertion errors and throw them all at once. This allows your code to continue executing until you explicitly check for failures.
+`soft-assertion` is a lightweight assertion library for TypeScript and JavaScript, designed to collect assertion errors and throw them all at once. This allows your code to continue executing until you explicitly check for failures.
 
 ## Features
 
@@ -12,22 +12,29 @@
 
 ## Usage
 
+
 ```ts
-import { MagicAssert } from 'magic-assert';
+import { Assert } from 'soft-assertion';
 
-class Test {        
-    private magicAssert = new MagicAssert();
+class Foo {
+    private assert = new Assert();
 
-    fun() {
-        this.magicAssert.isUndefined(undefined, "This should pass");
-        this.magicAssert.isTrue(true, "This should also pass");
-        // Add more assertions as needed
-        this.magicAssert.assertAll(); // Throws if any assertion failed
+    function fun() {
+        this.assert.equals('magic', 'assert', 'Custom message in case of a failure');
+        this.assert.assertAll();
     }
 }
 
-const test = new Test();
-test.fun();
+const foo = new Foo();
+foo.fun();
+```
+The output will be as follows:
+
+```bash
+Custom message in case of a failure
+Actual: magic is not equal to Expected: assert
+
+// Followed by error stack
 ```
 
 **Notes:**
@@ -36,7 +43,7 @@ test.fun();
 
 ---
 
-## API Reference
+## Function Reference
 
 All assertion methods record errors but do not throw immediately. Call `assertAll()` to throw if any errors were recorded.
 
@@ -55,48 +62,6 @@ isDefined(value: any, message: string): void
 isNumber(value: any, message: string): void
 isString(value: any, message: string): void
 assertAll(): void
-```
-
----
-
-## TypeScript Integration
-
-If you encounter issues with TypeScript declarations, you can create a custom module declaration:
-
-Create a `magic-assert.d.ts` file in your project root:
-
-```ts
-declare module 'magic-assert' {
-    export class MagicAssert {
-        // Add required function signatures as needed
-    }
-}
-```
-
-Now you can import and use `MagicAssert` anywhere in your project:
-
-```ts
-import { MagicAssert } from 'magic-assert';
-
-class Foo {
-    private magic = new MagicAssert();
-
-    function fun() {
-        this.magic.equals('magic', 'assert', 'Custom message in case of a failure');
-        this.magic.assertAll();
-    }
-}
-
-const foo = new Foo();
-foo.fun();
-```
-The output will be as follows:
-
-```text
-Custom message in case of a failure
-Actual: magic is not equal to Expected: assert
-
-// Followed by stack
 ```
 
 ---
