@@ -1,11 +1,12 @@
 {
-  "name": "magic-assert",
-  "version": "1.1.0",
+  "name": "soft-assertion",
+  "version": "1.1.1",
   "description": "soft assertions",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "scripts": {
-    "build": "npm run tsc -p tsconfig.json",
+    "test": "jest",
+    "build": "tsc -p tsconfig.json",
     "publish": "npm run build && npm publish --access public"
   },
   "exports": {
@@ -26,7 +27,24 @@
     "soft-assert",
     "assertions",
     "testing",
-    "magic-assert"
+    "soft-assertion",
+    "automation",
+    "javascript",
+    "typescript",
+    "automation-testing",
+    "test-automation",
+    "test-assertions",
+    "test-framework",
+    "test-utilities",
+    "test-helpers",
+    "test-assert",
+    "test-assertion",
+    "test-assertions-library",
+    "test-assertion-library",
+    "test-assertion-utilities",
+    "test-assertion-helpers",
+    "test-assertion-framework",
+    "test-assertion-tools"
   ],
   "author": "Dhruv",
   "license": "ISC",
@@ -35,8 +53,12 @@
   },
   "homepage": "https://github.com/thedhruvdhiman/MagicAssert#readme",
   "devDependencies": {
+    "@types/jest": "^30.0.0",
     "@types/lodash": "^4.17.20",
-    "@types/node": "^24.0.12",
+    "@types/node": "^24.3.0",
+    "jest": "^30.0.5",
+    "ts-jest": "^29.4.1",
+    "ts-node": "^10.9.2",
     "typescript": "^5.8.3"
   },
   "dependencies": {
