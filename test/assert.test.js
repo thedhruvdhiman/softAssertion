@@ -235,5 +235,4 @@ describe("Assert", () => {
       expect(() => assert.assertAll()).not.toThrow();
     });
   });
-
 });
