@@ -1,6 +1,6 @@
 {
   "name": "soft-assertion",
-  "version": "1.1.5",
+  "version": "1.1.6",
   "description": "soft assertions",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
