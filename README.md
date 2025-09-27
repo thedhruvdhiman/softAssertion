@@ -61,6 +61,19 @@ isUndefined(value: any, message: string): void
 isDefined(value: any, message: string): void
 isNumber(value: any, message: string): void
 isString(value: any, message: string): void
+strictEquals(actual: any, expected: any, message: string): void
+strictIncludes(actual: string, expected: string, message: string): void
+strictIsTrue(value: boolean, message: string): void
+strictIsFalse(value: boolean, message: string): void
+strictNotEqual(actual: any, expected: any, message: string): void
+strictGreaterThan(actual: number, expected: number, message: string): void
+strictIsLessThan(actual: number, expected: number, message: string): void
+strictNotNull(value: any, message: string): void
+strictIsNull(value: any, message: string): void
+strictIsUndefined(value: any, message: string): void
+strictIsDefined(value: any, message: string): void
+strictIsNumber(value: any, message: string): void
+strictIsString(value: any, message: string): void
 assertAll(): void
 ```
 
