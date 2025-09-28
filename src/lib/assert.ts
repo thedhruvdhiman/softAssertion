@@ -1,6 +1,6 @@
-import {Assertion} from "./helper/assertion.interface.js";
-import {throwAssertionErrors} from "./helper/LogHelper.js";
-import _ from 'lodash';
+import { Assertion } from "./helper/assertion.interface.js";
+import { throwAssertionErrors } from "./helper/LogHelper.js";
+import _ from "lodash";
 
 /**
  *
@@ -113,7 +113,7 @@ export class Assert implements Assertion {
    * - Fail: Assertion error will be stored
    */
   isTrue(value: boolean, message: string): void {
-    if (!value || typeof value !== 'boolean') {
+    if (!value || typeof value !== "boolean") {
       const error = new Error(`${message}\nActual: ${value}\nExpected: true\n`);
       this.assertionErrors.push({
         message: `${error.stack}`,
@@ -952,7 +952,7 @@ export class Assert implements Assertion {
    * assertAll - Throw error (if any) for all assertions
    */
   assertAll() {
-    if (this.assertionErrors.length > 0) {
+    if (this.assertionErrors.length) {
       const errorMessageData: { message: string }[] = this.assertionErrors;
       this.assertionErrors = [];
       throwAssertionErrors(errorMessageData);
