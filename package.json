@@ -7,7 +7,7 @@
   "scripts": {
     "test": "jest",
     "build": "tsc -p tsconfig.json",
-    "publish": "npm run build && npm publish --access public"
+    "npm-publish": "npm run build && npm publish --access public"
   },
   "exports": {
     ".": {
