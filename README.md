@@ -51,8 +51,6 @@ Assertion methods record errors but do not throw immediately, strict assertion m
 
 Call `assertAll()` to throw if any errors were recorded.
 
-To view complete all the API refer to `src/lib/helpers/assertion.interface.ts`
-
 ---
 
 > Note: If you use strict assert anywhere in your code, that will throw error immediately (in case of a failure in condition), followed with the previously recorded errors.
