@@ -5,11 +5,7 @@ export interface Assertion {
    * @param expected - The value to be asserted
    * @param message - Custom message to be displayed if the assertion fails
    */
-  equals<T = string | number | boolean>(
-    actual: T,
-    expected: T,
-    message: string
-  ): void;
+  equals(actual: any, expected: any, message: string): void;
 
   /**
    * Check if the actual value includes the expected value.
@@ -17,7 +13,7 @@ export interface Assertion {
    * @param expected - The expected value to check for.
    * @param message - The message to be displayed if the assertion fails.
    */
-  includes(actual: string, expected: string, message: string): void;
+  includes(actual: any, expected: any, message: string): void;
 
   /**
    * Check if the value is strictly true.
@@ -39,11 +35,7 @@ export interface Assertion {
    * @param expected - The expected value to compare against.
    * @param message - The message to be displayed if the assertion fails.
    */
-  notEqual<T = string | number | boolean>(
-    actual: T,
-    expected: T,
-    message: string
-  ): void;
+  notEqual(actual: any, expected: any, message: string): void;
 
   /**
    * Check if the actual value is greater than the expected value.
@@ -103,17 +95,13 @@ export interface Assertion {
    */
   isString(value: any, message: string): void;
 
-    /**
+  /**
    * Check if the actual value is strictly equal to the expected value.
    * @param actual - The value for the assertion
    * @param expected - The value to be asserted
    * @param message - Custom message to be displayed if the assertion fails
    */
-  strictEquals<T = string | number | boolean>(
-    actual: T,
-    expected: T,
-    message: string
-  ): void;
+  strictEquals(actual: any, expected: any, message: string): void;
 
   /**
    * Check if the actual value includes the expected value.
@@ -121,7 +109,7 @@ export interface Assertion {
    * @param expected - The expected value to check for.
    * @param message - The message to be displayed if the assertion fails.
    */
-  strictIncludes(actual: string, expected: string, message: string): void;
+  strictIncludes(actual: any, expected: any, message: string): void;
 
   /**
    * Check if the value is strictly true.
@@ -143,11 +131,7 @@ export interface Assertion {
    * @param expected - The expected value to compare against.
    * @param message - The message to be displayed if the assertion fails.
    */
-  strictNotEqual<T = string | number | boolean>(
-    actual: T,
-    expected: T,
-    message: string
-  ): void;
+  strictNotEqual(actual: any, expected: any, message: string): void;
 
   /**
    * Check if the actual value is greater than the expected value.

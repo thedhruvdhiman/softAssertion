@@ -19,7 +19,7 @@ import { Assert } from 'soft-assertion';
 class Foo {
     private assert = new Assert();
 
-    function fun() {
+    fun() {
         this.assert.equals('magic', 'assert', 'Custom message in case of a failure');
         this.assert.assertAll();
     }

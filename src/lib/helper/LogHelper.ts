@@ -10,11 +10,11 @@ export const throwAssertionErrors = (
 ): void => {
   const errorMessages = errorMessageData
     .map(
-      ({message}: { message: string }, index: number) =>
-        `❌ [Assertion ${index + 1}]: \n${message}\n`
+      ({ message }: { message: string }, index: number) =>
+        `❌ [Assertion ${index + 1}]: \n${message}\n`,
     )
     .join("\n");
   throw new Error(
-    `Assertion errors detected. See details below (expand in Allure report):\n${errorMessages}`
+    `Assertion errors:\n${errorMessages.length}\n${errorMessages}`,
   );
 };
