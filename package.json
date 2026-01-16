@@ -1,18 +1,18 @@
 {
   "name": "soft-assertion",
-  "version": "1.1.8",
+  "version": "1.1.9",
   "description": "soft assertions",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
+  "type": "module",
   "scripts": {
-    "test": "jest",
+    "test": "NODE_OPTIONS='--experimental-vm-modules' jest",
     "build": "tsc -p tsconfig.json",
     "npm-publish": "npm run build && npm publish --access public"
   },
   "exports": {
     ".": {
-      "import": "./dist/index.js",
-      "require": "./dist/index.js"
+      "import": "./dist/index.js"
     }
   },
   "files": [

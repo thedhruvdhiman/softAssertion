@@ -1,4 +1,4 @@
-const { Assert } = require("../dist/lib/assert.js");
+import { Assert } from "../dist/lib/assert.js";
 
 describe("Assert", () => {
   let assert;
