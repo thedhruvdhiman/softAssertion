@@ -1,5 +1,5 @@
-import { Assertion } from "./helper/assertion.interface.js";
-import { throwAssertionErrors } from "./helper/LogHelper.js";
+import { Assertion } from "./assertion.interface.js";
+import { throwAssertionErrors } from "./LogHelper.js";
 import _ from "lodash";
 
 /**
@@ -40,7 +40,7 @@ export class Assert implements Assertion {
   equals(actual: any, expected: any, message: string): void {
     if (!_.isEqual(actual, expected)) {
       const error = new Error(
-        `[Assertion failed: equals] ${message}\n  Expected: ${expected}\n  Actual: ${actual}`
+        `[Assertion failed: equals] ${message}\n  Expected: ${expected}\n  Actual: ${actual}`,
       );
       this.assertionErrors.push({
         message: `${error.stack}`,
@@ -84,8 +84,8 @@ export class Assert implements Assertion {
     if (!condition) {
       const error = new Error(
         `[Assertion failed: includes] ${message}\n  Expected: ${JSON.stringify(
-          expected
-        )}\n  Actual: ${JSON.stringify(actual)}`
+          expected,
+        )}\n  Actual: ${JSON.stringify(actual)}`,
       );
       this.assertionErrors.push({
         message: `${error.stack}`,
@@ -117,7 +117,7 @@ export class Assert implements Assertion {
   isTrue(value: boolean, message: string): void {
     if (!value || typeof value !== "boolean") {
       const error = new Error(
-        `[Assertion failed: isTrue] ${message}\n  Expected: true\n  Actual: ${value}`
+        `[Assertion failed: isTrue] ${message}\n  Expected: true\n  Actual: ${value}`,
       );
       this.assertionErrors.push({
         message: `${error.stack}`,
@@ -149,7 +149,7 @@ export class Assert implements Assertion {
   isFalse(value: boolean, message: string): void {
     if (value) {
       const error = new Error(
-        `[Assertion failed: isFalse] ${message}\n  Expected: false\n  Actual: ${value}`
+        `[Assertion failed: isFalse] ${message}\n  Expected: false\n  Actual: ${value}`,
       );
       this.assertionErrors.push({
         message: `${error.stack}`,
@@ -182,7 +182,7 @@ export class Assert implements Assertion {
   notEqual(actual: any, expected: any, message: string): void {
     if (_.isEqual(actual, expected)) {
       const error = new Error(
-        `[Assertion failed: notEqual] ${message}\n  Value should not be equal to: ${expected}\n  Actual: ${actual}`
+        `[Assertion failed: notEqual] ${message}\n  Value should not be equal to: ${expected}\n  Actual: ${actual}`,
       );
       this.assertionErrors.push({
         message: `${error.stack}`,
@@ -217,7 +217,7 @@ export class Assert implements Assertion {
   greaterThan(actual: number, expected: number, message: string): void {
     if (actual <= expected) {
       const error = new Error(
-        `[Assertion failed: greaterThan] ${message}\n  Expected a value greater than: ${expected}\n  Actual: ${actual}`
+        `[Assertion failed: greaterThan] ${message}\n  Expected a value greater than: ${expected}\n  Actual: ${actual}`,
       );
       this.assertionErrors.push({
         message: `${error.stack}`,
@@ -255,7 +255,7 @@ export class Assert implements Assertion {
   isLessThan(actual: number, expected: number, message: string): void {
     if (actual >= expected) {
       const error = new Error(
-        `[Assertion failed: isLessThan] ${message}\n  Expected a value less than: ${expected}\n  Actual: ${actual}`
+        `[Assertion failed: isLessThan] ${message}\n  Expected a value less than: ${expected}\n  Actual: ${actual}`,
       );
       this.assertionErrors.push({
         message: `${error.stack}`,
@@ -287,7 +287,7 @@ export class Assert implements Assertion {
   notNull(value: any, message: string): void {
     if (value === null) {
       const error = new Error(
-        `[Assertion failed: notNull] ${message}\n  Expected a non-null value\n  Actual: ${value}`
+        `[Assertion failed: notNull] ${message}\n  Expected a non-null value\n  Actual: ${value}`,
       );
       this.assertionErrors.push({
         message: `${error.stack}`,
@@ -319,7 +319,7 @@ export class Assert implements Assertion {
   isNull(value: any, message: string): void {
     if (value !== null) {
       const error = new Error(
-        `[Assertion failed: isNull] ${message}\n  Expected a null value\n  Actual: ${value}`
+        `[Assertion failed: isNull] ${message}\n  Expected a null value\n  Actual: ${value}`,
       );
       this.assertionErrors.push({
         message: `${error.stack}`,
@@ -353,7 +353,7 @@ export class Assert implements Assertion {
   isDefined(value: any, message: string): void {
     if (value === undefined) {
       const error = new Error(
-        `[Assertion failed: isDefined] ${message}\n  Expected a defined value\n  Actual: ${value}`
+        `[Assertion failed: isDefined] ${message}\n  Expected a defined value\n  Actual: ${value}`,
       );
       this.assertionErrors.push({
         message: `${error.stack}`,
@@ -387,7 +387,7 @@ export class Assert implements Assertion {
   isUndefined(value: any, message: string): void {
     if (value !== undefined) {
       const error = new Error(
-        `[Assertion failed: isUndefined] ${message}\n  Expected an undefined value\n  Actual: ${value}`
+        `[Assertion failed: isUndefined] ${message}\n  Expected an undefined value\n  Actual: ${value}`,
       );
       this.assertionErrors.push({
         message: `${error.stack}`,
@@ -431,7 +431,7 @@ export class Assert implements Assertion {
       // !Number.isFinite(value)
     ) {
       const error = new Error(
-        `[Assertion failed: isNumber] ${message}\n  Expected a number\n  Actual: ${value}`
+        `[Assertion failed: isNumber] ${message}\n  Expected a number\n  Actual: ${value}`,
       );
       this.assertionErrors.push({
         message: `${error.stack}`,
@@ -471,13 +471,53 @@ export class Assert implements Assertion {
   isString(value: any, message: string): void {
     if (!_.isString(value)) {
       const error = new Error(
-        `[Assertion failed: isString] ${message}\n  Expected a string\n  Actual: ${value} (type: ${typeof value})`
+        `[Assertion failed: isString] ${message}\n  Expected a string\n  Actual: ${value} (type: ${typeof value})`,
       );
       this.assertionErrors.push({
         message: `${error.stack}`,
       });
     }
   }
+
+  /**
+   * Assert if value is an empty object, collection, map, or set.\
+   * If condition is failed, an error is thrown and captured in the assertion errors list.
+   *
+   * @param value {any} - The value to be checked.
+   * @param message {string} - The message to be displayed if the assertion fails.
+   *
+   * ---
+   *
+   * Examples:
+   * ```ts
+   * isEmpty(null, "Oh no!");
+   * isEmpty({}, "Oh no!");
+   * isEmpty("", "Oh no!");
+   * ```
+   *
+   * */
+  isEmpty(value: any, message: string): void {
+    if (!_.isEmpty(value)) {
+      const error = new Error(
+        `[Assertion failed: isEmpty] ${message}\n  Expected an empty value\n  Actual: ${value}`,
+      );
+      this.assertionErrors.push({
+        message: `${error.stack}`,
+      });
+    }
+  }
+
+  /**************************************************************
+   *                                                            *
+   *                                                            *
+   *                                                            *
+   *                      S T R I C T                           *
+   *                      A S S E R T                           *
+   *                       B E L O W                            *
+   *                                                            *
+   *                                                            *
+   *                                                            *
+   **************************************************************/
 
   /**
    * Asserts that two values are strictly equal.\
@@ -505,7 +545,7 @@ export class Assert implements Assertion {
   strictEquals(actual: any, expected: any, message: string): void {
     if (!_.isEqual(actual, expected)) {
       const error = new Error(
-        `[Assertion failed: strictEquals] ${message}\n  Expected: ${expected}\n  Actual: ${actual}`
+        `[Assertion failed: strictEquals] ${message}\n  Expected: ${expected}\n  Actual: ${actual}`,
       );
       this.assertionErrors.push({
         message: `${error.stack}`,
@@ -550,8 +590,8 @@ export class Assert implements Assertion {
     if (!condition) {
       const error = new Error(
         `[Assertion failed: strictIncludes] ${message}\n  Expected: ${JSON.stringify(
-          expected
-        )}\n  Actual: ${JSON.stringify(actual)}`
+          expected,
+        )}\n  Actual: ${JSON.stringify(actual)}`,
       );
       this.assertionErrors.push({
         message: `${error.stack}`,
@@ -584,7 +624,7 @@ export class Assert implements Assertion {
   strictIsTrue(value: boolean, message: string): void {
     if (!value || typeof value !== "boolean") {
       const error = new Error(
-        `[Assertion failed: strictIsTrue] ${message}\n  Expected: true\n  Actual: ${value}`
+        `[Assertion failed: strictIsTrue] ${message}\n  Expected: true\n  Actual: ${value}`,
       );
       this.assertionErrors.push({
         message: `${error.stack}`,
@@ -617,7 +657,7 @@ export class Assert implements Assertion {
   strictIsFalse(value: boolean, message: string): void {
     if (value) {
       const error = new Error(
-        `[Assertion failed: strictIsFalse] ${message}\n  Expected: false\n  Actual: ${value}`
+        `[Assertion failed: strictIsFalse] ${message}\n  Expected: false\n  Actual: ${value}`,
       );
       this.assertionErrors.push({
         message: `${error.stack}`,
@@ -651,7 +691,7 @@ export class Assert implements Assertion {
   strictNotEqual(actual: any, expected: any, message: string): void {
     if (_.isEqual(actual, expected)) {
       const error = new Error(
-        `[Assertion failed: strictNotEqual] ${message}\n  Value should not be equal to: ${expected}\n  Actual: ${actual}`
+        `[Assertion failed: strictNotEqual] ${message}\n  Value should not be equal to: ${expected}\n  Actual: ${actual}`,
       );
       this.assertionErrors.push({
         message: `${error.stack}`,
@@ -687,7 +727,7 @@ export class Assert implements Assertion {
   strictGreaterThan(actual: number, expected: number, message: string): void {
     if (actual <= expected) {
       const error = new Error(
-        `[Assertion failed: strictGreaterThan] ${message}\n  Expected a value greater than: ${expected}\n  Actual: ${actual}`
+        `[Assertion failed: strictGreaterThan] ${message}\n  Expected a value greater than: ${expected}\n  Actual: ${actual}`,
       );
       this.assertionErrors.push({
         message: `${error.stack}`,
@@ -726,7 +766,7 @@ export class Assert implements Assertion {
   strictIsLessThan(actual: number, expected: number, message: string): void {
     if (actual >= expected) {
       const error = new Error(
-        `[Assertion failed: strictIsLessThan] ${message}\n  Expected a value less than: ${expected}\n  Actual: ${actual}`
+        `[Assertion failed: strictIsLessThan] ${message}\n  Expected a value less than: ${expected}\n  Actual: ${actual}`,
       );
       this.assertionErrors.push({
         message: `${error.stack}`,
@@ -758,7 +798,7 @@ export class Assert implements Assertion {
   strictNotNull(value: any, message: string): void {
     if (value === null) {
       const error = new Error(
-        `[Assertion failed: strictNotNull] ${message}\n  Expected a non-null value\n  Actual: ${value}`
+        `[Assertion failed: strictNotNull] ${message}\n  Expected a non-null value\n  Actual: ${value}`,
       );
       this.assertionErrors.push({
         message: `${error.stack}`,
@@ -791,7 +831,7 @@ export class Assert implements Assertion {
   strictIsNull(value: any, message: string): void {
     if (value !== null) {
       const error = new Error(
-        `[Assertion failed: strictIsNull] ${message}\n  Expected a null value\n  Actual: ${value}`
+        `[Assertion failed: strictIsNull] ${message}\n  Expected a null value\n  Actual: ${value}`,
       );
       this.assertionErrors.push({
         message: `${error.stack}`,
@@ -826,7 +866,7 @@ export class Assert implements Assertion {
   strictIsDefined(value: any, message: string): void {
     if (value === undefined) {
       const error = new Error(
-        `[Assertion failed: strictIsDefined] ${message}\n  Expected a defined value\n  Actual: ${value}`
+        `[Assertion failed: strictIsDefined] ${message}\n  Expected a defined value\n  Actual: ${value}`,
       );
       this.assertionErrors.push({
         message: `${error.stack}`,
@@ -861,7 +901,7 @@ export class Assert implements Assertion {
   strictIsUndefined(value: any, message: string): void {
     if (value !== undefined) {
       const error = new Error(
-        `[Assertion failed: strictIsUndefined] ${message}\n  Expected an undefined value\n  Actual: ${value}`
+        `[Assertion failed: strictIsUndefined] ${message}\n  Expected an undefined value\n  Actual: ${value}`,
       );
       this.assertionErrors.push({
         message: `${error.stack}`,
@@ -906,7 +946,7 @@ export class Assert implements Assertion {
       // !Number.isFinite(value)
     ) {
       const error = new Error(
-        `[Assertion failed: strictIsNumber] ${message}\n  Expected a number\n  Actual: ${value}`
+        `[Assertion failed: strictIsNumber] ${message}\n  Expected a number\n  Actual: ${value}`,
       );
       this.assertionErrors.push({
         message: `${error.stack}`,
@@ -947,7 +987,36 @@ export class Assert implements Assertion {
   strictIsString(value: any, message: string): void {
     if (!_.isString(value)) {
       const error = new Error(
-        `[Assertion failed: strictIsString] ${message}\n  Expected a string\n  Actual: ${value} (type: ${typeof value})`
+        `[Assertion failed: strictIsString] ${message}\n  Expected a string\n  Actual: ${value} (type: ${typeof value})`,
+      );
+      this.assertionErrors.push({
+        message: `${error.stack}`,
+      });
+      this.assertAll();
+    }
+  }
+
+  /**
+   * Assert if value is an empty object, collection, map, or set.\
+   * If condition is failed, an error is thrown and captured in the assertion errors list.
+   *
+   * @param value {any} - The value to be checked.
+   * @param message {string} - The message to be displayed if the assertion fails.
+   *
+   * ---
+   *
+   * Examples:
+   * ```ts
+   * isEmpty(null, "Oh no!");
+   * isEmpty({}, "Oh no!");
+   * isEmpty("", "Oh no!");
+   * ```
+   *
+   * */
+  strictIsEmpty(value: any, message: string): void {
+    if (!_.isEmpty(value)) {
+      const error = new Error(
+        `[Assertion failed: strictIsEmpty] ${message}\n  Expected an empty value\n  Actual: ${value}`,
       );
       this.assertionErrors.push({
         message: `${error.stack}`,
